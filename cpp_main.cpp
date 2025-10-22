@@ -30,10 +30,8 @@ int cpp_main(void){
 	/* MAIN FUNCTION 2 STACK */
 	OSThreadStart(&blink2, &main_blink2, pStackBlink2, sizeof(stackBlink2));
 
-	while (1){
-	}
+	OSRun();
 	
-
 	return 0;
 }
 
