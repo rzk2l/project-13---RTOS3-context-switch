@@ -11,6 +11,8 @@ typedef void(*OSThreadHandler)();   //THIS MEANS THAT OSThreadHandler IS FROM NO
 
 void OSInit();
 
+void OSRun();
+
 // OSSched MUST BE CALLED WHEN INTERRUPTS ARE DISABLED
 void OSSched();
 

@@ -12,9 +12,15 @@ void OSInit(){
     SCB->SHPR[10] = 0xFF; //SETS PENDSV PRIORITY TO LOW
 }
 
+void OSRun(){
+	__disable_irq();
+	OSSched();
+	__enable_irq();
+	// CODE AFTER HERE WILL NEVER RUN BECAUSE PENDSV INTERRUPTS HERE AND WILL GO TO THE THREADS AND NEVER RETURN HERE
+}
 
 void OSSched(){
-	
+
 	if ((SCB->ICSR & SCB_ICSR_PENDSVSET_Msk) != 0U) {
         return;
     }
