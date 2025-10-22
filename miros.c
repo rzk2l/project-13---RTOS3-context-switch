@@ -4,11 +4,26 @@
 OSThread* volatile OS_curr;
 OSThread* volatile OS_next;
 
+OSThread* OSThreads[32+1]; // ARRAY OF THREADS THAT HAVE BEEN STARTED SO FAR, IT SAVES POINTERS TO THREADS
+uint8_t OSThreadNumber;		// HOW MANY THREADS HAVE BEEN STARTED SO FAR
+uint8_t OS_currIndex;		// HOLDS THE ARRAY INDEX OF THE CURRENT THREAD RUNNING 
+
 void OSInit(){
     SCB->SHPR[10] = 0xFF; //SETS PENDSV PRIORITY TO LOW
 }
 
+
 void OSSched(){
+	
+	if ((SCB->ICSR & SCB_ICSR_PENDSVSET_Msk) != 0U) {
+        return;
+    }
+	++OS_currIndex;
+	if(OS_currIndex == OSThreadNumber){
+		OS_currIndex = 0;
+	} 
+	OS_next = OSThreads[OS_currIndex];
+
     if(OS_next != OS_curr){
         SCB->ICSR |= SCB_ICSR_PENDSVSET_Msk;
     }
@@ -16,7 +31,7 @@ void OSSched(){
 }
 
 void OSThreadStart(OSThread* me, OSThreadHandler threadHandler, void* stackMem, uint32_t stackSize){
-    uint32_t* pStack = (uint32_t*)((((uint32_t)stackMem + stackSize)/8)*8);        
+    uint32_t* pStack = (uint32_t*)((((uint32_t)stackMem + stackSize)/8)*8);    //TAKES THE ADDRESS AT THE TOP OF THE PRIVATE STACK AND THE PRIVATE STACK'S SIZE AND CALCULATES THE VALUE OF THE STACK POINTER    
   	*(--pStack) = 0x00000000;  // reserved word
 	*(--pStack) = 0x00000000;  // FPSCR
 	*(--pStack) = 0x41410000;  // S15 (example)
@@ -53,7 +68,10 @@ void OSThreadStart(OSThread* me, OSThreadHandler threadHandler, void* stackMem, 
   *(--pStack) = 0x5; //R5
 	*(--pStack) = 0x4; //R4
 
-    me->sp = pStack;
+    me->sp = pStack;	//ASSIGNS THE TOP OF THE STACK TO THE THREAD STARTED
+
+	OSThreads[OSThreadNumber] = me;	// ADDS THE POINTER TO THE STARTED THREAD TO THE ARRAY OF THREAD POINTERS, this array will be traversed by the scheduler
+	++OSThreadNumber;
 }
 
 void PendSV_Handler(){
