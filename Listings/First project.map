@@ -1135,27 +1135,27 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08000370   Section        0  stm32f4xx_it.o(.text.NMI_Handler)
     [Anonymous Symbol]                       0x08000374   Section        0  miros.o(.text.OSDelay)
     [Anonymous Symbol]                       0x080003d0   Section        0  miros.o(.text.OSIdle)
-    [Anonymous Symbol]                       0x080003e4   Section        0  miros.o(.text.OSInit)
-    [Anonymous Symbol]                       0x08000414   Section        0  miros.o(.text.OSRun)
-    [Anonymous Symbol]                       0x08000420   Section        0  miros.o(.text.OSSched)
-    [Anonymous Symbol]                       0x080004d8   Section        0  miros.o(.text.OSThreadStart)
-    [Anonymous Symbol]                       0x08000718   Section        0  miros.o(.text.OSTick)
-    [Anonymous Symbol]                       0x080007a0   Section        0  miros.o(.text.PendSV_Handler)
-    PendSV_restore                           0x080007b0   Number         0  miros.o(.text.PendSV_Handler)
-    [Anonymous Symbol]                       0x080007d0   Section        0  stm32f4xx_it.o(.text.SVC_Handler)
-    [Anonymous Symbol]                       0x080007d4   Section        0  bsp.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x080007e4   Section        0  system_stm32f4xx.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x080007f8   Section        0  stm32f4xx_it.o(.text.UsageFault_Handler)
-    __NVIC_SystemReset                       0x080007fd   Thumb Code    38  bsp.o(.text.__NVIC_SystemReset)
-    [Anonymous Symbol]                       0x080007fc   Section        0  bsp.o(.text.__NVIC_SystemReset)
-    [Anonymous Symbol]                       0x08000824   Section        0  bsp.o(.text.assert_failed)
-    [Anonymous Symbol]                       0x08000828   Section        0  cpp_main.o(.text.cpp_main)
-    [Anonymous Symbol]                       0x08000888   Section        0  miros.o(.text.idle_thread)
-    [Anonymous Symbol]                       0x08000894   Section        0  main.o(.text.main)
-    [Anonymous Symbol]                       0x080008a0   Section        0  cpp_main.o(.text.main_blink)
-    [Anonymous Symbol]                       0x080008d8   Section        0  cpp_main.o(.text.main_blink2)
-    $v0                                      0x0800090e   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x0800090e   Section       26  fpinit.o(x$fpl$fpinit)
+    [Anonymous Symbol]                       0x080003e0   Section        0  miros.o(.text.OSInit)
+    [Anonymous Symbol]                       0x08000410   Section        0  miros.o(.text.OSRun)
+    [Anonymous Symbol]                       0x0800041c   Section        0  miros.o(.text.OSSched)
+    [Anonymous Symbol]                       0x080004d4   Section        0  miros.o(.text.OSThreadStart)
+    [Anonymous Symbol]                       0x08000714   Section        0  miros.o(.text.OSTick)
+    [Anonymous Symbol]                       0x0800079c   Section        0  miros.o(.text.PendSV_Handler)
+    PendSV_restore                           0x080007ac   Number         0  miros.o(.text.PendSV_Handler)
+    [Anonymous Symbol]                       0x080007cc   Section        0  stm32f4xx_it.o(.text.SVC_Handler)
+    [Anonymous Symbol]                       0x080007d0   Section        0  bsp.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x080007e0   Section        0  system_stm32f4xx.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x080007f4   Section        0  stm32f4xx_it.o(.text.UsageFault_Handler)
+    __NVIC_SystemReset                       0x080007f9   Thumb Code    38  bsp.o(.text.__NVIC_SystemReset)
+    [Anonymous Symbol]                       0x080007f8   Section        0  bsp.o(.text.__NVIC_SystemReset)
+    [Anonymous Symbol]                       0x08000820   Section        0  bsp.o(.text.assert_failed)
+    [Anonymous Symbol]                       0x08000824   Section        0  cpp_main.o(.text.cpp_main)
+    [Anonymous Symbol]                       0x08000884   Section        0  miros.o(.text.idle_thread)
+    [Anonymous Symbol]                       0x08000890   Section        0  main.o(.text.main)
+    [Anonymous Symbol]                       0x0800089c   Section        0  cpp_main.o(.text.main_blink)
+    [Anonymous Symbol]                       0x080008d4   Section        0  cpp_main.o(.text.main_blink2)
+    $v0                                      0x0800090a   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x0800090a   Section       26  fpinit.o(x$fpl$fpinit)
     Stack_Mem                                0x20000000   Data        1024  startup_stm32f401xe.o(STACK)
     STACK                                    0x20000000   Section     1024  startup_stm32f401xe.o(STACK)
     __initial_sp                             0x20000400   Data           0  startup_stm32f401xe.o(STACK)
@@ -1325,28 +1325,28 @@ Image Symbol Table
     MemManage_Handler                        0x08000369   Thumb Code     8  startup_stm32.o(.text.MemManage_Handler)
     NMI_Handler                              0x08000371   Thumb Code     4  stm32f4xx_it.o(.text.NMI_Handler)
     OSDelay                                  0x08000375   Thumb Code    92  miros.o(.text.OSDelay)
-    OSIdle                                   0x080003d1   Thumb Code    18  miros.o(.text.OSIdle)
-    OSInit                                   0x080003e5   Thumb Code    48  miros.o(.text.OSInit)
-    OSRun                                    0x08000415   Thumb Code    12  miros.o(.text.OSRun)
-    OSSched                                  0x08000421   Thumb Code   182  miros.o(.text.OSSched)
-    OSThreadStart                            0x080004d9   Thumb Code   576  miros.o(.text.OSThreadStart)
-    OSTick                                   0x08000719   Thumb Code   136  miros.o(.text.OSTick)
-    PendSV_Handler                           0x080007a1   Thumb Code    38  miros.o(.text.PendSV_Handler)
-    SVC_Handler                              0x080007d1   Thumb Code     2  stm32f4xx_it.o(.text.SVC_Handler)
-    SysTick_Handler                          0x080007d5   Thumb Code    16  bsp.o(.text.SysTick_Handler)
-    SystemInit                               0x080007e5   Thumb Code    18  system_stm32f4xx.o(.text.SystemInit)
-    UsageFault_Handler                       0x080007f9   Thumb Code     4  stm32f4xx_it.o(.text.UsageFault_Handler)
-    assert_failed                            0x08000825   Thumb Code     4  bsp.o(.text.assert_failed)
-    cpp_main                                 0x08000829   Thumb Code    94  cpp_main.o(.text.cpp_main)
-    idle_thread                              0x08000889   Thumb Code    10  miros.o(.text.idle_thread)
-    main                                     0x08000895   Thumb Code    10  main.o(.text.main)
-    main_blink                               0x080008a1   Thumb Code    54  cpp_main.o(.text.main_blink)
-    main_blink2                              0x080008d9   Thumb Code    54  cpp_main.o(.text.main_blink2)
-    _fp_init                                 0x0800090f   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08000927   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08000927   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    Region$$Table$$Base                      0x08000928   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000938   Number         0  anon$$obj.o(Region$$Table)
+    OSIdle                                   0x080003d1   Thumb Code    16  miros.o(.text.OSIdle)
+    OSInit                                   0x080003e1   Thumb Code    48  miros.o(.text.OSInit)
+    OSRun                                    0x08000411   Thumb Code    12  miros.o(.text.OSRun)
+    OSSched                                  0x0800041d   Thumb Code   182  miros.o(.text.OSSched)
+    OSThreadStart                            0x080004d5   Thumb Code   576  miros.o(.text.OSThreadStart)
+    OSTick                                   0x08000715   Thumb Code   136  miros.o(.text.OSTick)
+    PendSV_Handler                           0x0800079d   Thumb Code    38  miros.o(.text.PendSV_Handler)
+    SVC_Handler                              0x080007cd   Thumb Code     2  stm32f4xx_it.o(.text.SVC_Handler)
+    SysTick_Handler                          0x080007d1   Thumb Code    16  bsp.o(.text.SysTick_Handler)
+    SystemInit                               0x080007e1   Thumb Code    18  system_stm32f4xx.o(.text.SystemInit)
+    UsageFault_Handler                       0x080007f5   Thumb Code     4  stm32f4xx_it.o(.text.UsageFault_Handler)
+    assert_failed                            0x08000821   Thumb Code     4  bsp.o(.text.assert_failed)
+    cpp_main                                 0x08000825   Thumb Code    94  cpp_main.o(.text.cpp_main)
+    idle_thread                              0x08000885   Thumb Code    10  miros.o(.text.idle_thread)
+    main                                     0x08000891   Thumb Code    10  main.o(.text.main)
+    main_blink                               0x0800089d   Thumb Code    54  cpp_main.o(.text.main_blink)
+    main_blink2                              0x080008d5   Thumb Code    54  cpp_main.o(.text.main_blink2)
+    _fp_init                                 0x0800090b   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08000923   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08000923   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    Region$$Table$$Base                      0x08000924   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000934   Number         0  anon$$obj.o(Region$$Table)
     __StackTop                               0x20000400   Data           0  startup_stm32f401xe.o(STACK)
     __libspace_start                         0x20000400   Data          96  libspace.o(.bss)
     IdleThread                               0x20000460   Data           8  miros.o(.bss.IdleThread)
@@ -1374,9 +1374,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000195
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000938, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000934, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000938, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000934, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1448,38 +1448,37 @@ Memory Map of the image
     0x08000368   0x08000368   0x00000008   Code   RO           24    .text.MemManage_Handler  startup_stm32.o
     0x08000370   0x08000370   0x00000004   Code   RO           60    .text.NMI_Handler   stm32f4xx_it.o
     0x08000374   0x08000374   0x0000005c   Code   RO          584    .text.OSDelay       miros.o
-    0x080003d0   0x080003d0   0x00000012   Code   RO          576    .text.OSIdle        miros.o
-    0x080003e2   0x080003e2   0x00000002   PAD
-    0x080003e4   0x080003e4   0x00000030   Code   RO          578    .text.OSInit        miros.o
-    0x08000414   0x08000414   0x0000000c   Code   RO          588    .text.OSRun         miros.o
-    0x08000420   0x08000420   0x000000b6   Code   RO          586    .text.OSSched       miros.o
-    0x080004d6   0x080004d6   0x00000002   PAD
-    0x080004d8   0x080004d8   0x00000240   Code   RO          580    .text.OSThreadStart  miros.o
-    0x08000718   0x08000718   0x00000088   Code   RO          582    .text.OSTick        miros.o
-    0x080007a0   0x080007a0   0x00000030   Code   RO          590    .text.PendSV_Handler  miros.o
-    0x080007d0   0x080007d0   0x00000002   Code   RO           70    .text.SVC_Handler   stm32f4xx_it.o
-    0x080007d2   0x080007d2   0x00000002   PAD
-    0x080007d4   0x080007d4   0x00000010   Code   RO           42    .text.SysTick_Handler  bsp.o
-    0x080007e4   0x080007e4   0x00000012   Code   RO          102    .text.SystemInit    system_stm32f4xx.o
-    0x080007f6   0x080007f6   0x00000002   PAD
-    0x080007f8   0x080007f8   0x00000004   Code   RO           68    .text.UsageFault_Handler  stm32f4xx_it.o
-    0x080007fc   0x080007fc   0x00000026   Code   RO           38    .text.__NVIC_SystemReset  bsp.o
-    0x08000822   0x08000822   0x00000002   PAD
-    0x08000824   0x08000824   0x00000004   Code   RO           36    .text.assert_failed  bsp.o
-    0x08000828   0x08000828   0x0000005e   Code   RO            2    .text.cpp_main      cpp_main.o
-    0x08000886   0x08000886   0x00000002   PAD
-    0x08000888   0x08000888   0x0000000a   Code   RO          574    .text.idle_thread   miros.o
-    0x08000892   0x08000892   0x00000002   PAD
-    0x08000894   0x08000894   0x0000000a   Code   RO           51    .text.main          main.o
-    0x0800089e   0x0800089e   0x00000002   PAD
-    0x080008a0   0x080008a0   0x00000036   Code   RO            4    .text.main_blink    cpp_main.o
-    0x080008d6   0x080008d6   0x00000002   PAD
-    0x080008d8   0x080008d8   0x00000036   Code   RO            6    .text.main_blink2   cpp_main.o
-    0x0800090e   0x0800090e   0x0000001a   Code   RO          725    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08000928   0x08000928   0x00000010   Data   RO          786    Region$$Table       anon$$obj.o
+    0x080003d0   0x080003d0   0x00000010   Code   RO          576    .text.OSIdle        miros.o
+    0x080003e0   0x080003e0   0x00000030   Code   RO          578    .text.OSInit        miros.o
+    0x08000410   0x08000410   0x0000000c   Code   RO          588    .text.OSRun         miros.o
+    0x0800041c   0x0800041c   0x000000b6   Code   RO          586    .text.OSSched       miros.o
+    0x080004d2   0x080004d2   0x00000002   PAD
+    0x080004d4   0x080004d4   0x00000240   Code   RO          580    .text.OSThreadStart  miros.o
+    0x08000714   0x08000714   0x00000088   Code   RO          582    .text.OSTick        miros.o
+    0x0800079c   0x0800079c   0x00000030   Code   RO          590    .text.PendSV_Handler  miros.o
+    0x080007cc   0x080007cc   0x00000002   Code   RO           70    .text.SVC_Handler   stm32f4xx_it.o
+    0x080007ce   0x080007ce   0x00000002   PAD
+    0x080007d0   0x080007d0   0x00000010   Code   RO           42    .text.SysTick_Handler  bsp.o
+    0x080007e0   0x080007e0   0x00000012   Code   RO          102    .text.SystemInit    system_stm32f4xx.o
+    0x080007f2   0x080007f2   0x00000002   PAD
+    0x080007f4   0x080007f4   0x00000004   Code   RO           68    .text.UsageFault_Handler  stm32f4xx_it.o
+    0x080007f8   0x080007f8   0x00000026   Code   RO           38    .text.__NVIC_SystemReset  bsp.o
+    0x0800081e   0x0800081e   0x00000002   PAD
+    0x08000820   0x08000820   0x00000004   Code   RO           36    .text.assert_failed  bsp.o
+    0x08000824   0x08000824   0x0000005e   Code   RO            2    .text.cpp_main      cpp_main.o
+    0x08000882   0x08000882   0x00000002   PAD
+    0x08000884   0x08000884   0x0000000a   Code   RO          574    .text.idle_thread   miros.o
+    0x0800088e   0x0800088e   0x00000002   PAD
+    0x08000890   0x08000890   0x0000000a   Code   RO           51    .text.main          main.o
+    0x0800089a   0x0800089a   0x00000002   PAD
+    0x0800089c   0x0800089c   0x00000036   Code   RO            4    .text.main_blink    cpp_main.o
+    0x080008d2   0x080008d2   0x00000002   PAD
+    0x080008d4   0x080008d4   0x00000036   Code   RO            6    .text.main_blink2   cpp_main.o
+    0x0800090a   0x0800090a   0x0000001a   Code   RO          725    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08000924   0x08000924   0x00000010   Data   RO          786    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000938, Size: 0x000009f0, Max: 0x00018000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000934, Size: 0x000009f0, Max: 0x00018000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1488,11 +1487,11 @@ Memory Map of the image
     0x20000460        -       0x00000008   Zero   RW          594    .bss.IdleThread     miros.o
     0x20000468        -       0x00000004   Zero   RW          596    .bss.OSReadySet     miros.o
     0x2000046c        -       0x00000001   Zero   RW          592    .bss.OSThreadNumber  miros.o
-    0x2000046d   0x08000938   0x00000003   PAD
+    0x2000046d   0x08000934   0x00000003   PAD
     0x20000470        -       0x00000084   Zero   RW          595    .bss.OSThreads      miros.o
     0x200004f4        -       0x00000004   Zero   RW          597    .bss.OS_curr        miros.o
     0x200004f8        -       0x00000001   Zero   RW          598    .bss.OS_currIndex   miros.o
-    0x200004f9   0x08000938   0x00000003   PAD
+    0x200004f9   0x08000934   0x00000003   PAD
     0x200004fc        -       0x00000004   Zero   RW          599    .bss.OS_next        miros.o
     0x20000500        -       0x00000008   Zero   RW           10    .bss.blink1         cpp_main.o
     0x20000508        -       0x00000008   Zero   RW           12    .bss.blink2         cpp_main.o
@@ -1502,7 +1501,7 @@ Memory Map of the image
     0x2000051c        -       0x000000f0   Zero   RW            9    .bss.stackBlink     cpp_main.o
     0x2000060c        -       0x000000f0   Zero   RW           11    .bss.stackBlink2    cpp_main.o
     0x200006fc        -       0x000000f0   Zero   RW            8    .bss.stackIdleThread  cpp_main.o
-    0x200007ec   0x08000938   0x00000004   PAD
+    0x200007ec   0x08000934   0x00000004   PAD
     0x200007f0        -       0x00000200   Zero   RW           93    HEAP                startup_stm32f401xe.o
 
 
@@ -1516,16 +1515,16 @@ Image component sizes
        132          0          0          0          0       2926   bsp.o
        202          0          0          0        744       2513   cpp_main.o
         10          0          0          0          0        424   main.o
-      1122          8          0          0        158       3403   miros.o
+      1120          8          0          0        158       3400   miros.o
         32          4        404          0          0        811   startup_stm32.o
         64         26          0          0       1536        916   startup_stm32f401xe.o
         12          0          0          0          0       1050   stm32f4xx_it.o
         18          0          0          0          0       2789   system_stm32f4xx.o
 
     ----------------------------------------------------------------------
-      1614         38        420          0       2448      14832   Object Totals
+      1610         38        420          0       2448      14829   Object Totals
          0          0         16          0          0          0   (incl. Generated)
-        22          0          0          0         10          0   (incl. Padding)
+        20          0          0          0         10          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1573,15 +1572,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1940         54        420          0       2544      15256   Grand Totals
-      1940         54        420          0       2544      15256   ELF Image Totals
-      1940         54        420          0          0          0   ROM Totals
+      1936         54        420          0       2544      15253   Grand Totals
+      1936         54        420          0       2544      15253   ELF Image Totals
+      1936         54        420          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2360 (   2.30kB)
+    Total RO  Size (Code + RO Data)                 2356 (   2.30kB)
     Total RW  Size (RW Data + ZI Data)              2544 (   2.48kB)
-    Total ROM Size (Code + RO Data + RW Data)       2360 (   2.30kB)
+    Total ROM Size (Code + RO Data + RW Data)       2356 (   2.30kB)
 
 ==============================================================================
 

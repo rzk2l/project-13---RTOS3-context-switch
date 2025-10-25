@@ -22,9 +22,8 @@ void idle_thread(){
 /* THE IDLE THREAD, THE THREAD THAT IT IS ALWAYS READY TO RUN AND CANNOT BE BLOCKED */
 
 void OSIdle(){
-	while(1){
-		++g_idle_task;
-	}
+	++g_idle_task;
+	__WFI();
 }
 
 void OSInit(void* stackMem, uint32_t stackSize){
