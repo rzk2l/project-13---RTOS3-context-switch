@@ -5,11 +5,73 @@ OSThread* volatile OS_curr;
 OSThread* volatile OS_next;
 
 OSThread* OSThreads[32+1]; // ARRAY OF THREADS THAT HAVE BEEN STARTED SO FAR, IT SAVES POINTERS TO THREADS
-uint8_t OSThreadNumber;		// HOW MANY THREADS HAVE BEEN STARTED SO FAR
+uint8_t OSThreadNumber = 0;		// HOW MANY THREADS HAVE BEEN STARTED SO FAR
 uint8_t OS_currIndex;		// HOLDS THE ARRAY INDEX OF THE CURRENT THREAD RUNNING 
 
-void OSInit(){
+uint32_t OSReadySet;	// IT IS A BIT MASK THAT WORK WITH OSThreads, EACH SET BIT WILL SIGNAL THAT THE THREAD AT INDEX BIT+1 IS READY (0 INDEX FOR IDLE IS IGNORED CUZ IDLE IS ALWAYS READY AND NOT TAKEN INTO CONSIDERATION BY THE MASK) 
+
+volatile uint32_t g_idle_task = 0;
+
+/* THE IDLE THREAD, THE THREAD THAT IT IS ALWAYS READY TO RUN AND CANNOT BE BLOCKED */
+OSThread IdleThread;
+void idle_thread(){
+	while(1){
+		OSIdle();
+	}
+}
+/* THE IDLE THREAD, THE THREAD THAT IT IS ALWAYS READY TO RUN AND CANNOT BE BLOCKED */
+
+void OSIdle(){
+	while(1){
+		++g_idle_task;
+	}
+}
+
+void OSInit(void* stackMem, uint32_t stackSize){
     SCB->SHPR[10] = 0xFF; //SETS PENDSV PRIORITY TO LOW
+
+	// START THE IDLE THREAD
+	OSThreadStart(&IdleThread, &idle_thread, stackMem, stackSize);
+}
+
+void OSTick(){
+	uint8_t n;
+	for(n=1; n < OSThreadNumber; ++n){
+		if(OSThreads[n]->timeout != 0){		// IF TIMEOUT IS NON ZERO (STILL BLOCKED)
+			--OSThreads[n]->timeout;		// DECREASE TIMEOUT
+			if(OSThreads[n]->timeout == 0){		// IF TIMEOUT IS TURNING ZERO
+				OSReadySet |= (1 << (n - 1));	// RENDER THREAD READY FOR SCHEDULING BECAUSE DELAY HAS FINISHED
+			}
+		}
+	}
+}
+
+void OSDelay(uint32_t ticks){
+	if(OS_curr != OSThreads[0]){
+		__disable_irq();
+		OS_curr->timeout = ticks;
+		OSReadySet &= ~(1 << (OS_currIndex - 1)); // BLOCK THE THREAD AND CALL SCHEDULER AFTER TO LOOK FOR A READY THREAD OR SWITCH TO IDLE THREAD
+		OSSched();
+		__enable_irq();
+	}
+}
+
+void OSSched(){
+	if(OSReadySet == 0){	// IF NO THREAD IS READY (ALL ZEROS)
+		OS_currIndex = 0;	// SCHEDULE THE IDLE THREAD
+	} else {
+		do {
+			++OS_currIndex;
+			if(OS_currIndex == OSThreadNumber){
+				OS_currIndex = 1;
+			} 
+		} while ((OSReadySet & (1 << (OS_currIndex - 1))) == 0);
+	}
+	OS_next = OSThreads[OS_currIndex];
+
+    if(OS_next != OS_curr){
+        SCB->ICSR |= SCB_ICSR_PENDSVSET_Msk;
+    }
 }
 
 void OSRun(){
@@ -19,22 +81,6 @@ void OSRun(){
 	// CODE AFTER HERE WILL NEVER RUN BECAUSE PENDSV INTERRUPTS HERE AND WILL GO TO THE THREADS AND NEVER RETURN HERE
 }
 
-void OSSched(){
-
-	if ((SCB->ICSR & SCB_ICSR_PENDSVSET_Msk) != 0U) {
-        return;
-    }
-	++OS_currIndex;
-	if(OS_currIndex == OSThreadNumber){
-		OS_currIndex = 0;
-	} 
-	OS_next = OSThreads[OS_currIndex];
-
-    if(OS_next != OS_curr){
-        SCB->ICSR |= SCB_ICSR_PENDSVSET_Msk;
-    }
-     
-}
 
 void OSThreadStart(OSThread* me, OSThreadHandler threadHandler, void* stackMem, uint32_t stackSize){
     uint32_t* pStack = (uint32_t*)((((uint32_t)stackMem + stackSize)/8)*8);    //TAKES THE ADDRESS AT THE TOP OF THE PRIVATE STACK AND THE PRIVATE STACK'S SIZE AND CALCULATES THE VALUE OF THE STACK POINTER    
@@ -71,12 +117,16 @@ void OSThreadStart(OSThread* me, OSThreadHandler threadHandler, void* stackMem, 
 	*(--pStack) = 0x8; //R8
 	*(--pStack) = 0x7; //R7
 	*(--pStack) = 0x6; //R6
-  *(--pStack) = 0x5; //R5
+  	*(--pStack) = 0x5; //R5
 	*(--pStack) = 0x4; //R4
 
     me->sp = pStack;	//ASSIGNS THE TOP OF THE STACK TO THE THREAD STARTED
 
 	OSThreads[OSThreadNumber] = me;	// ADDS THE POINTER TO THE STARTED THREAD TO THE ARRAY OF THREAD POINTERS, this array will be traversed by the scheduler
+
+	if(OSThreadNumber > 0){
+		OSReadySet |= (1 << (OSThreadNumber - 1));	// MARK ALL NEWLY STARTED THREADS READY
+	}
 	++OSThreadNumber;
 }
 

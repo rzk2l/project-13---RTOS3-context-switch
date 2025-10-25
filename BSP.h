@@ -6,9 +6,6 @@
 
 void assert_failed();
 void BSP_init();
-uint32_t BSP_tickCtr();
-void BSP_delay(uint32_t ticks);
-
 
 
 #endif
